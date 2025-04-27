@@ -1,0 +1,207 @@
+/* 任务视图页面样式 */
+
+/* 子任务相关样式 */
+.subtask-item {
+    transition: background-color 0.3s ease;
+    position: relative;
+    border-radius: 0.5rem;
+}
+
+.subtask-item:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.subtask-check {
+    cursor: pointer;
+}
+
+.subtask-text {
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+/* 加载指示器样式 */
+.position-relative {
+    position: relative !important;
+}
+
+.subtask-loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 5;
+    border-radius: 0.5rem;
+}
+
+/* 评论样式 */
+.comment-item {
+    transition: transform 0.2s ease;
+    overflow: hidden;
+}
+
+.comment-item:hover {
+    transform: translateY(-2px);
+}
+
+.comment-text {
+    word-break: break-word;
+}
+
+/* 侧边栏样式 */
+.task-sidebar {
+    position: sticky;
+    top: 1rem;
+}
+
+/* 进度条样式 */
+.progress-container {
+    height: 8px;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 1rem;
+}
+
+.progress-bar {
+    height: 100%;
+    transition: width 0.5s ease-in-out;
+}
+
+/* 任务完成建议样式 */
+.task-complete-suggestion {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 错误通知样式 */
+.error-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    max-width: 350px;
+    animation: slideIn 0.3s ease-in-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* 删除确认对话框样式 */
+.modal-confirm .modal-header {
+    border-bottom-color: #f5f5f5;
+}
+
+.modal-confirm .modal-footer {
+    border-top-color: #f5f5f5;
+}
+
+/* 表单控件可访问性增强 */
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.25rem rgba(16, 163, 127, 0.25);
+}
+
+.btn:focus {
+    box-shadow: 0 0 0 0.25rem rgba(16, 163, 127, 0.25);
+}
+
+/* 响应式调整 */
+@media (max-width: 992px) {
+    .task-sidebar {
+        position: relative !important;
+        top: 0 !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .card-body {
+        padding: 1rem !important;
+    }
+    
+    .subtask-item,
+    .comment-item {
+        padding: 0.75rem !important;
+    }
+    
+    .h3 {
+        font-size: 1.5rem !important;
+    }
+    
+    .modal-dialog {
+        margin: 0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .card-body {
+        padding: 0.75rem !important;
+    }
+    
+    .subtask-item,
+    .comment-item {
+        padding: 0.5rem !important;
+    }
+    
+    .badge {
+        font-size: 0.7rem;
+    }
+    
+    .h3 {
+        font-size: 1.25rem !important;
+    }
+}
+
+/* 打印样式 */
+@media print {
+    .navbar, 
+    .sidebar,
+    .floating-action-btn,
+    .btn,
+    .modal,
+    .no-print {
+        display: none !important;
+    }
+    
+    .task-description {
+        font-size: 12pt;
+    }
+    
+    .card {
+        border: 1px solid #ddd !important;
+        box-shadow: none !important;
+    }
+    
+    .container {
+        width: 100% !important;
+        max-width: none !important;
+    }
+}
+
+/* 可访问性增强 */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* 聚焦状态 */
+a:focus, button:focus, input:focus, textarea:focus, select:focus {
+    outline: 2px solid rgba(16, 163, 127, 0.5);
+    outline-offset: 2px;
+}
